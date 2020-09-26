@@ -1,0 +1,30 @@
+{% extends 'base.template.html' %}
+
+{% block content %}
+
+{{food}}
+<h1>Update Food Records</h1>
+<form method="POST">
+    <div>
+        <label class="form-label">Food name: </label>
+        <input type="text" name="food_name" class="form-control" value="{{food.name}}"/>
+    </div>
+    <div>
+        <label class="form-label">Calories: </label>
+        <input type="text" name="calories" class="form-control" value="{{food.calories}}"/>
+    </div>
+    <div>
+        <label class="form-label">Date: </label>
+        <input type="text" name="date" class="form-control" value="{{food.date}}"/>
+    </div>
+    <div>
+        <label class="form-label">Meal: </label>
+        <input type="radio" name="meal" value="breakfast" {% if food.meal == 'breakfast' %} checked {%endif%} />Breakfast
+        <input type="radio" name="meal" value="lunch" {% if food.meal == 'lunch' %} checked {%endif%}/>Lunch
+        <input type="radio" name="meal" value="snack" {% if food.meal == 'snack' %} checked {%endif%}/>Snack
+        <input type="radio" name="meal" value="dinner" {% if food.meal == 'dinner' %} checked {%endif%}/>Dinner
+    </div>
+    <input type="submit" value="Update Customer" class="btn btn-primary"/>
+</form>
+
+{% endblock %}
