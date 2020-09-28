@@ -46,6 +46,7 @@ body {
     {% for food in all_food %}
        <li class="list-group-item list-group-item-dark text-center">{{food.name}} ({{food.calories}} calories)</li>
        <a href="{{ url_for('show_edit_food', food_id=food.id) }}" class="btn btn-primary"></a>
+       <a href="{{ url_for('show_edit_food', food_id=food.id) }}" class="btn btn-danger"></a>
     {% endfor %}
 </ul>
 

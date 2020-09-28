@@ -1,0 +1,12 @@
+{% extends 'base.template.html' %}
+
+{% block content %}
+<form method="POST">
+    <div class="alert alert-danger">
+        <div>
+            Are you sure you want to delete this food record for {{food.name}}
+        </div>
+        <input type="submit" class="btn btn-warning" value="confirm delete"/>
+        <a href="{{ url-for('show_food') }}" class="btn btn-success">No, cancel delete</a>
+    </div>
+{% endblock %}
