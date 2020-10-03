@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 import os
 import json
 import random
@@ -7,6 +7,8 @@ app = Flask(__name__)
 database = {}
 with open('food.json') as fp:
     database = json.load(fp)
+
+app.secret_key = b'm0342asdfs'
 
 @app.route('/')
 def home():
@@ -71,7 +73,10 @@ def process_edit_food(food_id):
 
         with open('food.json', 'w') as fp:
             json.dump(database, fp)
-
+       
+        flash(
+            f"The food {food_to_edit['name']}"
+            f"  has been edited successfully")
         return redirect(url_for('food_tracker'))
 
     else: 
