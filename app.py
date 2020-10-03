@@ -79,7 +79,7 @@ def process_edit_food(food_id):
 
 @app.route('/food/<int:food_id>/delete')
 def show_delete_food(food_id):
-    food_record = None#
+    food_record = None
     #linear search
     for food_record in database:
         if food_record['id'] == food_id:

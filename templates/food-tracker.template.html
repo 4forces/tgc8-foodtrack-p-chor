@@ -23,7 +23,7 @@
         <td>{{food.meal}}</td>
         <td>{{food.date}}</td>
         <td><a href="{{ url_for('show_edit_food', food_id=food.id) }}" class="btn btn-primary">Edit</a>
-        <a href="{{ url_for('show_edit_food', food_id=food.id) }}" class="btn btn-danger">Delete</a></td>
+        <a href="{{ url_for('show_delete_food', food_id=food.id) }}" class="btn btn-danger">Delete</a></td>
     </tr>
     {% endfor %}
 </table>
