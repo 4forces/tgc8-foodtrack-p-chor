@@ -53,6 +53,7 @@ def show_edit_food(food_id):
     else:
         return f"The customer with the id of {food_id} is not found"
 
+
 @app.route('/food/<int:food_id>/edit', methods=['POST'])
 def process_edit_food(food_id):
     food_to_edit = None
@@ -71,6 +72,8 @@ def process_edit_food(food_id):
         with open('food.json', 'w') as fp:
             json.dump(database, fp)
 
+        return redirect(url_for('food_tracker'))
+
     else: 
         return f"The food with the id {food_id} does not exist"
 
@@ -87,8 +90,8 @@ def show_delete_food(food_id):
         return render_template('show_delete_food.template.html', food=food_to_delete)
 
 @app.route('/foods/<int:food_id>/delete', methods=['POST'])
-def show_delete_food(food_id):
-    # initialise food_to_delete to None as this will eventually a dictionary
+def process_show_delete_food(food_id):
+    # initialise food_to_delete to None as this will eventually be a dictionary
     food_to_delete = None 
 
     # linear search (search one by one)

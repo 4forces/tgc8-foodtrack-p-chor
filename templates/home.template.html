@@ -1,22 +1,18 @@
 {% extends 'base.template.html' %}
 
-{% block style %}
-<style>
-body {
-        background: linear-gradient(to bottom, rgba(92, 77, 66, 0.7) 0%, rgba(92, 77, 66, 0.7) 100%), url("https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-        background-size: cover;
-        height: 100vh;
-        color: white;
-}
-</style>
-{% endblock %}
-
 {% block content %}
 <h1 class='text-center'>Welcome to food tracker app</h1>
 
-<a class='text-white' href="{{ url_for('show_add_food')}}">Go to add food</a>
+<div class='row justify-content-center mt-5'>
+    <h2><a class='text-warning' href="{{ url_for('show_add_food')}}">Go to add food</a></h2>
+</div>
+
+<div class='row justify-content-center mt-5'>
+    <h2><a class='text-primary' href="{{ url_for('food_tracker')}}">Go to food tracking list</a></h2>
+</div>
+
+<div class='row justify-content-center mt-5'>
+    <h2><a class='text-info' href="{{ url_for('show_add_food')}}">Add food</a></h2>
+</div>
 
 {% endblock %}

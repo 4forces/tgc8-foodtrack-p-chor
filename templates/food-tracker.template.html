@@ -1,19 +1,5 @@
 {% extends 'base.template.html' %}
 
-{% block style %}
-<style>
-body {
-        background: linear-gradient(to bottom, rgba(92, 77, 66, 0.7) 0%, rgba(92, 77, 66, 0.7) 100%), url("https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-        background-size: cover;
-        height: 100vh;
-        color: white;
-}
-</style>
-{% endblock %}
-
 {% block title %}
 <h1 class='text-center'>Food Tracking List</h1>
 {% endblock %}
@@ -27,6 +13,7 @@ body {
             <th>Calories</th>
             <th>Meal</th>
             <th>Date</th>
+            <th>Options</th>
         </tr>
     <thead>
     {% for food in all_food %}
@@ -35,6 +22,8 @@ body {
         <td>{{food.calories}}</td>
         <td>{{food.meal}}</td>
         <td>{{food.date}}</td>
+        <td><a href="{{ url_for('show_edit_food', food_id=food.id) }}" class="btn btn-primary">Edit</a>
+        <a href="{{ url_for('show_edit_food', food_id=food.id) }}" class="btn btn-danger">Delete</a></td>
     </tr>
     {% endfor %}
 </table>
@@ -45,8 +34,6 @@ body {
 <ul class="list-group">
     {% for food in all_food %}
        <li class="list-group-item list-group-item-dark text-center">{{food.name}} ({{food.calories}} calories)</li>
-       <a href="{{ url_for('show_edit_food', food_id=food.id) }}" class="btn btn-primary"></a>
-       <a href="{{ url_for('show_edit_food', food_id=food.id) }}" class="btn btn-danger"></a>
     {% endfor %}
 </ul>
 

@@ -1,8 +1,10 @@
 {% extends 'base.template.html' %}
 
-{% block content %}
+{% block title %}
+<h1 class='text-center'>Edit food</h1>
+{% endblock %}
 
-{{food}}
+{% block content %}
 <h1>Update Food Records</h1>
 <form method="POST">
     <div>
