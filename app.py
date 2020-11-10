@@ -94,22 +94,26 @@ def show_delete_food(food_id):
     if food_record:
         return render_template('show_delete_food.template.html', food=food_to_delete)
 
-@app.route('/foods/<int:food_id>/delete', methods=['POST'])
+@app.route('/food/<int:food_id>/delete', methods=['POST'])
 def process_show_delete_food(food_id):
     # initialise food_to_delete to None as this will eventually be a dictionary
     food_to_delete = None 
 
     # linear search (search one by one)
-    for food_record in databsse:
+    for food_record in database:
         if food_record['id'] == food_id:
             food_to_delete = food_record['id']
             break
 
     if food_to_delete:
+        print('database = ', database)
+        print('food_to_delete: ', food_to_delete)
         database.remove(food_to_delete)
 
         with open('food.json', 'w') as fp:
             json.dump(database, fp)
+
+        flash(f"Selected food has been deleted successfully")
 
         return redirect(url_for('show_food'))
     
